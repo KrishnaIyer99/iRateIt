@@ -22,10 +22,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//input
-app.post("/login", (req, res) => {
-    res.sendFile(__dirname + "/login.html")
-  });
 
 app.post("/submit", (req, res) => {
     var date = ({dateTime: (new Date())})
