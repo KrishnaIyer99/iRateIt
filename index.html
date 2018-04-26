@@ -2,95 +2,107 @@
 <html>
   <head>
     <title>iRateIt</title>
-  <style>
-    body {
-      background:rgb(222, 205, 162);
-
-      color: rgb(8, 44, 22);
-      ;
-      text-align: center;
-    }
-    h1 {
-    -webkit-text-stroke: 1epx rgb(255, 255, 255);
-    color:  rgb(8, 44, 22);
-    font-weight: bold;
-    text-align: center;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 8vw
-    
-    }
-    input[type=text], select {
-      width: 20%;
-      padding: 12px 20px;
-      text-align: center;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 1vw
-    }
-    
-
-
-    input[type=submit] {
-      width: 20%;
-      background-color: rgb(8, 44, 22);
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      -webkit-border-radius: 20px;
-      font-size: 2vw
-      
-    }
+    <style>
+      body {
+        background:#045D88;
+        color: white;
+      }
+      #banner {
+        background-color: #1498D5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      header {
+      padding-left: 20px;
+      color:  white;
+      font:   100px gasalt;
+      text-align: left;
+      }
+      h1 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%); /* IE 9 */
+        -webkit-transform: translate(-50%, -50%);
+        font:   80px gasalt;
+      }
+      form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%); /* IE 9 */
+        -webkit-transform: translate(-50%, -50%);
+        text-align: center;
+        font:   20px gasalt;
+      }
+      input[type=text] {
+        width: 300px;
+        padding: 12px 20px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font:   20px gasalt;
+      }
   
-    input[type=submit]:hover {
-      background-color: rgb(4, 27, 13);
-    }
+      input[type=submit] {
+        width: 150px;
+        background-color: #1498D5;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        -webkit-border-radius: 20px;
+        font:   20px gasalt;
+      }
     
-  </style>
+      input[type=submit]:hover {
+        background-color: rgb(20, 136, 190);
+      }
+    </style>
   </head>
+  <div id = "banner">
+      <header>iRateIt</header>
+  </div>
   <body>
-    <h1>iRateIt</h1>
-    <form method="post" action="/submit">
-      <br>
-      <br>
-      <div>
-          <input type="text" name="session_id" placeholder="Enter your session ID..." required>
-      </div>
-      <br>
-      <br>
-      <div id="radios">
-        <input type="radio" id = "Option1" name="answer" value = 1 required>
-        <label for = "Option1">Option 1</label>
-        <input type="radio" id = "Option2" name="answer" value = 2 required>
-        <label for = "Option2">Option 2</label>
-        <input type="radio" id = "Option3" name="answer" value = 3 required>
-        <label for = "Option3">Option 3</label>
-        
-      </div>
-      <br>
-      <br>
-      <div>
-        <input type="checkbox" id = "Option1" name="answer1" value = true>
-        <label for = "Option1">Option 1</label>
-        <input type="checkbox" id = "Option2" name="answer2" value = true>
-        <label for = "Option2">Option 2</label>
-        <input type="checkbox" id = "Option3" name="answer3" value = true>
-        <label for = "Option3">Option 3</label>
-        <input type="checkbox" id = "Option4" name="answer4" value = true>
-        <label for = "Option4">Option 4</label>
-        <input type="checkbox" id = "Option5" name="answer5" value = true>
-        <label for = "Option5">Option 5</label>
-      </div>
-      <br>
-      <br>
-      <div>
-        <input type = "submit"></button>
-      </div>
-      
-    </form>
+    <h1>Lecture Feedback
+    </h1>
+        <form method="post" action="/submit">
+          <div>
+              <input type="text" name="session_id" placeholder="Enter your session ID..." required>
+          </div>
+          <br>
+          <div id="radios">
+            <input type="radio" id = "Option1" name="answer" value = 1 required>
+            <label for = "Option1">Option 1</label>
+            <input type="radio" id = "Option2" name="answer" value = 2 required>
+            <label for = "Option2">Option 2</label>
+            <input type="radio" id = "Option3" name="answer" value = 3 required>
+            <label for = "Option3">Option 3</label>
+          </div>
+          <br>
+          <div>
+            <input type="checkbox" id = "Option1" name="answer1" value = true>
+            <label for = "Option1">Option 1</label>
+            <input type="checkbox" id = "Option2" name="answer2" value = true>
+            <label for = "Option2">Option 2</label>
+            <input type="checkbox" id = "Option3" name="answer3" value = true>
+            <label for = "Option3">Option 3</label>
+            <input type="checkbox" id = "Option4" name="answer4" value = true>
+            <label for = "Option4">Option 4</label>
+            <input type="checkbox" id = "Option5" name="answer5" value = true>
+            <label for = "Option5">Option 5</label>
+          </div>
+          <br>
+          <div>
+            <input type = "submit"></button>
+          </div>
+        </form>
   </body>
 </html>
