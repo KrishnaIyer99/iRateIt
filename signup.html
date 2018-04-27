@@ -89,39 +89,27 @@
     <div id = "banner">
       <header>iRateIt</header>
       <ul id = "menu">
-        <li><a href = "/signup">Sign Up</a></li>
+        <li><a class = "active"href = "/signup">Sign Up</a></li>
         <li><a href = "/login">Login</a></li>
-        <li><a class = "active" href = "/">Home</a></li>
+        <li><a href = "/">Home</a></li>
       </ul>
   </div>
   <body>
-        <form method="post" action="/submit">
+        <form method="post" action="/signupattempt">
           <div>
-              <input type="text" name="session_id" placeholder="Enter your session ID..." required>
-          </div>
-          <br>
-          <div id="radios">
-            <input type="radio" id = "Option1" name="answer" value = 1 required>
-            <label for = "Option1">Option 1</label>
-            <input type="radio" id = "Option2" name="answer" value = 2 required>
-            <label for = "Option2">Option 2</label>
-            <input type="radio" id = "Option3" name="answer" value = 3 required>
-            <label for = "Option3">Option 3</label>
-          </div>
-          <br>
-          <div>
-            <input type="checkbox" id = "Option1" name="answer1" value = true>
-            <label for = "Option1">Option 1</label>
-            <input type="checkbox" id = "Option2" name="answer2" value = true>
-            <label for = "Option2">Option 2</label>
-            <input type="checkbox" id = "Option3" name="answer3" value = true>
-            <label for = "Option3">Option 3</label>
-            <input type="checkbox" id = "Option4" name="answer4" value = true>
-            <label for = "Option4">Option 4</label>
-            <input type="checkbox" id = "Option5" name="answer5" value = true>
-            <label for = "Option5">Option 5</label>
-          </div>
-          <br>
+              <input type="text" name="firstname" placeholder="Enter your first name..." required>
+              <br>
+              <input type="text" name="lastname" placeholder="Enter your last name..." required>
+              <br>
+              <input type="text" name="schoolname" placeholder="Enter your University/College" required>
+              <br>
+              <input type="text" name="email" placeholder="Enter your email..." required>
+              <br>
+              <input type="text" name="password" placeholder="Enter your password..." required>
+              <br>
+              <input type="text" name="confirmpassword" placeholder="Confirm your password..." required>
+              <br>
+            </div>
           <div>
             <input type = "submit"></button>
           </div>
