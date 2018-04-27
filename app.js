@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/iRateIt");
 const responseSchema = new mongoose.Schema({
     session_id: String,
-    answer: Number,
+    answer: Number, //determines how individual felt about material being taught
     answer1: Boolean,
     answer2: Boolean,
     answer3: Boolean,
@@ -34,9 +34,10 @@ app.post("/submit", (req, res) => {
       .catch(err => {
         res.status(400).send("unable to save to database");
       });
-    
+
   });
 
+<<<<<<< Updated upstream
 app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/login.html");
 });
@@ -52,6 +53,18 @@ app.post("/loginattempt", (req, res) => {
 //Krishna, replace your signup handler with this handler below
 app.post("/signupattempt", (req, res) => {
     res.send("Signup Attempt");
+=======
+app.post("/newUser", (req, res) => {
+  var data = new User(req.body);
+  var obj = JSON.parse(req.body);
+  data.save()
+    .then(item => {
+      res.send("User created")
+    })
+    .catch(err => {
+      res.status(400).send("unable to create new user");
+    });
+>>>>>>> Stashed changes
 });
 
 app.use("/",(req,res) => {
