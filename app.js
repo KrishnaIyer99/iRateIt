@@ -42,11 +42,16 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-    res.send("Sign Up ");
+    res.sendFile(__dirname + "/signup.html");
 });
 
+//Kai, use this handler for login attempts
 app.post("/loginattempt", (req, res) => {
     res.send("Login Attempt");
+});
+//Krishna, replace your signup handler with this handler below
+app.post("/signupattempt", (req, res) => {
+    res.send("Signup Attempt");
 });
 
 app.use("/",(req,res) => {
