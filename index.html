@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>iRateIt</title>
+  <style>
+    body {
+      background: #045D88;
+      color: white;
+    }
+
+    #banner {
+      background-color: #1498D5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    header {
+      padding-left: 20px;
+      color: white;
+      font: 100px gasalt;
+      text-align: left;
+    }
+
+    ul {
+      text-align: right;
+      list-style-type: none;
+      margin-top: -70px;
+      padding-right: 20px;
+      overflow: hidden;
+      font: 20px gasalt;
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    .active {
+      background-color: #045D88;
+    }
+
+    li a:hover {
+      background-color: #045D88;
+    }
+
+    li a:hover:not(.active) {
+      background-color: rgb(17, 133, 187);
+      font-weight: bold;
+    }
+
+    form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      /* IE 9 */
+      -webkit-transform: translate(-50%, -50%);
+      text-align: center;
+      font: 20px gasalt;
+    }
+
+    input[type=text] {
+      width: 300px;
+      padding: 12px 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font: 20px gasalt;
+    }
+
+    input[type=submit] {
+      width: 150px;
+      background-color: #1498D5;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      -webkit-border-radius: 20px;
+      font: 20px gasalt;
+    }
+
+    input[type=submit]:hover {
+      background-color: rgb(20, 136, 190);
+    }
+  </style>
+</head>
+<div id="banner">
+  <header>iRateIt</header>
+  <ul id="menu">
+    <li>
+      <a href="/signup">Sign Up</a>
+    </li>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+    <li>
+      <a class="active" href="/">Home</a>
+    </li>
+  </ul>
+</div>
+
+<body>
+  <form method="post" action="/submit">
+    <div>
+      <input type="text" name="session_id" placeholder="Enter your session ID..." required>
+    </div>
+    <br>
+    <div id="radios">
+      <input type="radio" id="Option1" name="answer" value=1 required>
+      <label for="Option1">Option 1</label>
+      <input type="radio" id="Option2" name="answer" value=2 required>
+      <label for="Option2">Option 2</label>
+      <input type="radio" id="Option3" name="answer" value=3 required>
+      <label for="Option3">Option 3</label>
+    </div>
+    <br>
+    <div>
+      <input type="checkbox" id="Option1" name="answer1" value=t rue>
+      <label for="Option1">Option 1</label>
+      <input type="checkbox" id="Option2" name="answer2" value=t rue>
+      <label for="Option2">Option 2</label>
+      <input type="checkbox" id="Option3" name="answer3" value=t rue>
+      <label for="Option3">Option 3</label>
+      <input type="checkbox" id="Option4" name="answer4" value=t rue>
+      <label for="Option4">Option 4</label>
+      <input type="checkbox" id="Option5" name="answer5" value=t rue>
+      <label for="Option5">Option 5</label>
+    </div>
+    <br>
+    <div>
+      <input type="submit">
+      </button>
+    </div>
+  </form>
+</body>
+
+</html>
