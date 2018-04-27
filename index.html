@@ -20,14 +20,33 @@
       font:   100px gasalt;
       text-align: left;
       }
-      h1 {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%); /* IE 9 */
-        -webkit-transform: translate(-50%, -50%);
-        font:   80px gasalt;
+      ul {
+        text-align: right;
+        list-style-type:none;
+        margin-top: -70px;
+        padding-right: 20px;
+        overflow: hidden;
+        font:   20px gasalt;
+      }
+      li {
+        float: right;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-radius: 2px;
+      }
+      .active {
+        background-color: #045D88;
+      }
+      li a:hover {
+        background-color: #045D88;
+      } 
+      li a:hover:not(.active) {
+        background-color: rgb(17, 133, 187);
       }
       form {
         position: absolute;
@@ -67,12 +86,15 @@
       }
     </style>
   </head>
-  <div id = "banner">
+    <div id = "banner">
       <header>iRateIt</header>
+      <ul id = "menu">
+        <li><a href = "/signup">Sign Up</a></li>
+        <li><a href = "/login">Login</a></li>
+        <li><a class = "active" href = "/">Home</a></li>
+      </ul>
   </div>
   <body>
-    <h1>Lecture Feedback
-    </h1>
         <form method="post" action="/submit">
           <div>
               <input type="text" name="session_id" placeholder="Enter your session ID..." required>

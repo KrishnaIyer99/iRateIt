@@ -36,7 +36,12 @@ app.post("/submit", (req, res) => {
       });
     
   });
-
+app.get("/login", (req, res) => {
+    res.send("LoginPage");
+});
+app.get("/signup", (req, res) => {
+    res.send("Sign Up ");
+});
 
 app.use("/",(req,res) => {
     res.sendFile(__dirname + "/index.html")
