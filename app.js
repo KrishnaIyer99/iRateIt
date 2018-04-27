@@ -36,11 +36,17 @@ app.post("/submit", (req, res) => {
       });
     
   });
+
 app.get("/login", (req, res) => {
-    res.send("LoginPage");
+    res.sendFile(__dirname + "/login.html");
 });
+
 app.get("/signup", (req, res) => {
     res.send("Sign Up ");
+});
+
+app.post("/loginattempt", (req, res) => {
+    res.send("Login Attempt");
 });
 
 app.use("/",(req,res) => {
