@@ -37,7 +37,7 @@ app.post("/submit", (req, res) => {
 
   });
 
-<<<<<<< Updated upstream
+
 app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/login.html");
 });
@@ -47,24 +47,30 @@ app.get("/signup", (req, res) => {
 });
 
 //Kai, use this handler for login attempts
-app.post("/loginattempt", (req, res) => {
+/*app.post("/loginattempt", (req, res) => {
     res.send("Login Attempt");
-});
+});*/
 //Krishna, replace your signup handler with this handler below
+/*app.post("/signupattempt", (req, res) => {
+    res.send("Signup Attempt");*/
+
 app.post("/signupattempt", (req, res) => {
-    res.send("Signup Attempt");
-=======
-app.post("/newUser", (req, res) => {
   var data = new User(req.body);
   var obj = JSON.parse(req.body);
+  /*mongoose.createCollection(obj.name, {
+    capped: false,
+    validationLevel: "strict",
+    validationAction: "error",
+    viewOn: "responses",
+
+  })*/
   data.save()
     .then(item => {
-      res.send("User created")
+      res.send("Sign up attempt succesful");
     })
     .catch(err => {
-      res.status(400).send("unable to create new user");
+      res.status(400).send("Sign up attempt failed");
     });
->>>>>>> Stashed changes
 });
 
 app.use("/",(req,res) => {
