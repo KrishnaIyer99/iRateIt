@@ -57,13 +57,13 @@ app.get("/signup", (req, res) => {
 app.post("/signupattempt", (req, res) => {
   var data = new User(req.body);
   var obj = JSON.parse(req.body);
-  /*mongoose.createCollection(obj.name, {
+  mongoose.createCollection(obj.name, {
     capped: false,
     validationLevel: "strict",
     validationAction: "error",
     viewOn: "responses",
-
-  })*/
+    pipeline: 
+  })
   data.save()
     .then(item => {
       res.send("Sign up attempt succesful");
