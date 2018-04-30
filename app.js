@@ -62,7 +62,6 @@ app.post("/signupattempt", (req, res) => {
     validationLevel: "strict",
     validationAction: "error",
     viewOn: "responses",
-    pipeline: 
   })
   data.save()
     .then(item => {
