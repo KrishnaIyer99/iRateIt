@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/iRateIt");
 const responseSchema = new mongoose.Schema({
     session_id: String,
-    answer: Number, //determines how individual felt about material being taught
+    answer: Number, 
     answer1: Boolean,
     answer2: Boolean,
     answer3: Boolean,
@@ -14,8 +14,14 @@ const responseSchema = new mongoose.Schema({
     answer5: Boolean,
     dateTime: String
 });
-
-const User = mongoose.model("Responses", responseSchema);
+const signupSchema = new mongoose.Schema({
+    firstname: String,
+    lastname: String,
+    schoolname: String,
+    email: String,
+    password: String,
+    confirmpassword: String
+})
 
 //middleware bodyparser
 var bodyParser = require('body-parser');
@@ -24,18 +30,52 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post("/submit", (req, res) => {
-    var date = ({dateTime: (new Date())})
+    var User = mongoose.model("Responses", responseSchema);
+    var date = ({dateTime: (new Date())});
     var data = Object.assign(req.body,date);
-    var myData = new User(data);
+    var myData = new User(req.body);
     myData.save()
       .then(item => {
-        res.send("Thanks")
+        res.send("Thanks");
       })
       .catch(err => {
         res.status(400).send("unable to save to database");
       });
 
   });
+
+app.post("/signupattempt", (req, res) => {
+    if(req.body.password == req.body.confirmpassword){
+        //signup code
+        var User = mongoose.model("Professors", signupSchema);
+        var professor = new User(req.body);
+        professor.save()
+            .then(item => {
+                res.send("Sucessfully created account");
+            })
+            .catch(err => {
+                res.status(400).send("unable to save to database");
+            })
+    }
+    else{
+        res.send("Error: passwords must match");
+    }
+  /*var data = new User(req.body);
+  var obj = JSON.parse(req.body);
+  mongoose.createCollection(obj.name, {
+    capped: false,
+    validationLevel: "strict",
+    validationAction: "error",
+    viewOn: "responses",
+  })
+  data.save()
+    .then(item => {
+      res.send("Sign up attempt succesful");
+    })
+    .catch(err => {
+      res.status(400).send("Sign up attempt failed");
+    });*/
+});
 
 
 app.get("/login", (req, res) => {
@@ -50,27 +90,6 @@ app.get("/signup", (req, res) => {
 /*app.post("/loginattempt", (req, res) => {
     res.send("Login Attempt");
 });*/
-//Krishna, replace your signup handler with this handler below
-/*app.post("/signupattempt", (req, res) => {
-    res.send("Signup Attempt");*/
-
-app.post("/signupattempt", (req, res) => {
-  var data = new User(req.body);
-  var obj = JSON.parse(req.body);
-  mongoose.createCollection(obj.name, {
-    capped: false,
-    validationLevel: "strict",
-    validationAction: "error",
-    viewOn: "responses",
-  })
-  data.save()
-    .then(item => {
-      res.send("Sign up attempt succesful");
-    })
-    .catch(err => {
-      res.status(400).send("Sign up attempt failed");
-    });
-});
 
 app.use("/",(req,res) => {
     res.sendFile(__dirname + "/index.html")
