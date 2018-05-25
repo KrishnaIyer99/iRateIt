@@ -14,6 +14,21 @@
         left: 0;
         width: 100%;
       }
+        .Active_Sessions {
+        background-color: rgb(255, 255, 255);
+        height: 34px;
+        width: 400px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+      }
+
+      .Active_Sessions select {
+        border: 3px solid #ccc;
+        font-size: 24px;
+        height: 100px;
+        width: 268px;
+      }
       header {
       padding-left: 20px;
       color:  white;
@@ -97,11 +112,12 @@
   <body>
         
         <form method="post" action="/submit">
-          <select id = "Active_Sessions">
+          <select name = "session_id" class = "Active_Sessions">
+              <option value = 'select'>Select a session</option>
+              $replace_me
            </select>
-          <div>
-              <input type="text" name="session_id" placeholder="Enter your session ID..." required>
-          </div>
+          <br>
+          <br>
           <br>
           <div id="radios">
             <input type="radio" id = "Option1" name="answer" value = 1 required>
@@ -128,18 +144,7 @@
           <div>
             <input type = "submit"></button>
           </div>
-          <p id = "test">Hello</p>
         </form>
-        <script>
-            /*document.addEventListener("DOMContentLoaded", function() {
-              for (element in mongoData){
-                var option = document.createElement('option');
-                option.innerHTML = element;
-                option.value = element;
-                document.getElementById('Active_Sessions').append(option);
-              }
-            });*/
-          </script>
   </body>
   
 </html>
